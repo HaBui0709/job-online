@@ -17,6 +17,8 @@ const run = async () => {
     const { error } = await to(user.save())
     if (!error) {
       console.log('ACCOUNT ADMIN was init successfully')
+    } else {
+      console.log('ADMIN SUCCESSFULLY!')
     }
   }
 }

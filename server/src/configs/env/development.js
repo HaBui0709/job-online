@@ -3,7 +3,7 @@ export default {
   db: process.env.DB_PATH || 'mongodb://localhost/job-online',
   dbOptions: {
     native_parser: true,
-    // autoReconnect: true,
+    autoReconnect: true,
     keepAlive: 1,
     connectTimeoutMS: 300000,
     socketTimeoutMS: 300000,
@@ -23,13 +23,13 @@ export default {
     host: 'smtp.gmail.com',
     port: 465,
     secure: true, // use SSL
-    from: 'Minh Nguyễn Thanh <minh.milano1511@gmail.com>',
-    report: 'minh.milano1511@gmail.com',
+    from: 'Hà Bùi <ha.bk7997@gmail.com>',
+    report: 'ha.bk7997@gmail.com',
     transportMethod: 'SMTP',
     service: 'Gmail',
     auth: {
-      user: 'minh.milano1511@gmail.com',
-      pass: 'minh@15662',
+      user: 'ha.bk7997@gmail.com',
+      pass: 'kIenth@m1234',
     },
   },
 

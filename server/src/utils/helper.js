@@ -1,7 +1,5 @@
 import slug from 'slug'
 import moment from 'moment'
-import redis from '../init/redis'
-import env from './env'
 import configs from '../configs'
 
 /**
@@ -57,59 +55,6 @@ const getLocation = ({ location }) => {
     lat: location.coordinates[1],
     lon: location.coordinates[0],
   }
-}
-
-/**
- * Set key value to redis
- *
- * @param {String} key
- * @param {Any} value
- */
-const setRedisKeyValue = async (key, value) => {
-  if (!key) return
-  value = JSON.stringify(value)
-
-  // Set key for test env
-  if (env.isTest) {
-    key = `test_${key}`
-  }
-
-  await redis.set(key, value)
-}
-
-
-/**
- * Get key data from redis
- *
- * @param {String} key
- * @param {Boolean} parseToObject parse string to object after get
- */
-const getRedisDataByKey = async (key, parseToObject) => {
-  // Set key for test env
-  if (env.isTest) {
-    key = `test_${key}`
-  }
-
-  const value = await redis.get(key)
-  return parseToObject ? JSON.parse(value) : value
-}
-
-/**
- * Publish data to a channel
- *
- * @param {String} channel channel name
- * @param {String} message message will send
- */
-const redisPublish = async (channel, message) => {
-  const store = await redis.getStore()
-  store.publish(channel, message)
-}
-
-/**
- * Reload data
- */
-const reloadData = () => {
-  redisPublish(configs.redisKeys.channel, configs.redisKeys.pubSub.reloadConfig)
 }
 
 const getCity = (type) => {
@@ -233,12 +178,7 @@ export default {
   getSlug,
   delay,
   getLocation,
-  setRedisKeyValue,
-  getRedisDataByKey,
-  redisPublish,
-  reloadData,
   getCity,
-
   getFrequency,
   getSalary,
   getMainSkills,

@@ -5,9 +5,6 @@
 import { mongoose } from '../utils/mongoose'
 import config from '../configs'
 
-// Debug
-// mongoose.set('debug', true)
-
 export default async function () {
   try {
     await mongoose.connect(config.db, config.dbOptions)
