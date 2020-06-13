@@ -23,12 +23,12 @@ export default {
     host: 'smtp.gmail.com',
     port: 465,
     secure: true, // use SSL
-    from: 'Hà Bùi <ha.bk7997@gmail.com>',
-    report: 'ha.bk7997@gmail.com',
+    from: 'Hà Bùi <habui7997@gmail.com>',
+    report: 'habui7997@gmail.com',
     transportMethod: 'SMTP',
     service: 'Gmail',
     auth: {
-      user: 'ha.bk7997@gmail.com',
+      user: 'habui7997@gmail.com',
       pass: 'kIenth@m1234',
     },
   },

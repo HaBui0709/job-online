@@ -20,13 +20,14 @@ const apply = async (req, res) => {
     active: true,
   }
 
+  // check if recruiterment post exist
   const recuitermentCount = RecuitermentModel.countByCondition(conditionRecuiterment)
   if (!recuitermentCount) {
     return response.r400(res, locale, localesKey.common.serverError)
   }
 
 
-  // Check nganh nghe
+  // Check nganh nghe to see whether candidate's desired career matches recruiterment's careers
   const careerOfCV = (await CVModel.getBriefInfoById(req.body.cv)).overviewInfo.desiredCareer
   const careersRecuiterments = (await RecuitermentModel.getBriefInfoById(req.body.recuiterment)).careers
 

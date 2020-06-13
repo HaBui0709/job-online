@@ -25,7 +25,6 @@ const recuitermentCreatedNotify = (data = {}, options) => {
  *
  */
 const sendNotification = (data = [], options) => {
-  // const link = `http://localhost:4202/recuiter/apply-jobs/${data.applyJob._id}`
   options.html = `
   <div>
   <table bgcolor="#CCC" style="margin-top:10px;font-family:'Helvetica',san-serif;color:#444" width="100%">
@@ -50,7 +49,7 @@ const sendNotification = (data = [], options) => {
                                       <tbody>
                                           <tr>
                                               <td style="color:#fc205b;font-size:20px;font-weight:bold">
-                                                  Xin chào milano nguyễn,
+                                                  Xin chào Ha Bui,
                                               </td>
                                           </tr>
                                       </tbody>

@@ -7,7 +7,6 @@ import express from 'express'
 import middleware from '../system/middleware'
 import ApplyJobCtrl from './controller'
 import { preQuery } from '../../utils'
-// import validation from './validation'
 
 const router = express.Router()
 
