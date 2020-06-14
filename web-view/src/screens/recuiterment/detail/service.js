@@ -50,10 +50,19 @@ const fechSimilarJobs = (_id) => {
   })
 }
 
+const saveJob = (data) => {
+  const api = ApiConst.candidate.saveFavorite()
+  return request.call(api.url, {
+    method: api.method,
+    body: data,
+  })
+}
+
 export {
   fetchDetailRecuitermentPosting,
   checkIsExistCV,
   applyJob,
   getCVApproved,
   fechSimilarJobs,
+  saveJob,
 }

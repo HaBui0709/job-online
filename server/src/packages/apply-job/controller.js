@@ -28,10 +28,18 @@ const apply = async (req, res) => {
 
 
   // Check nganh nghe to see whether candidate's desired career matches recruiterment's careers
-  const careerOfCV = (await CVModel.getBriefInfoById(req.body.cv)).overviewInfo.desiredCareer
+  const careerOfCVs = (await CVModel.getBriefInfoById(req.body.cv)).overviewInfo.desiredCareer.map(item => item._id.toString())
   const careersRecuiterments = (await RecuitermentModel.getBriefInfoById(req.body.recuiterment)).careers
 
-  if (!careersRecuiterments.map(item => item._id.toString()).includes(careerOfCV._id.toString())) {
+  const crStrings = careersRecuiterments.map(item => item._id.toString())
+  let isexisted = false
+  crStrings.forEach((element) => {
+    if (careerOfCVs.includes(element)) {
+      isexisted = true
+      return
+    }
+  })
+  if (!isexisted) {
     return response.r400(res, locale, localesKey.common.notSameCareer)
   }
 
@@ -81,7 +89,7 @@ const apply = async (req, res) => {
     data: dataSendEmail,
   }
   await sendEmail(mailData, 'applyJobCreatedNotify')
-  return true
+  return response.r200(res, locale, '')
 }
 
 /**

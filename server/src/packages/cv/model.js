@@ -12,10 +12,10 @@ const schema = new Schema({
     desiredLocation: String,
     currentRank: String,
     desiredRank: String,
-    desiredCareer: {
+    desiredCareer: [{
       type: Schema.Types.ObjectId,
       ref: 'CareerGroup',
-    },
+    }],
     desiredCity: String,
     aducation: String,
     totalYearExperience: String,

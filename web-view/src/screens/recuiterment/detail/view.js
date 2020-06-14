@@ -90,6 +90,15 @@ class RecuitermentDetailView extends React.Component {
     }
   }
 
+  saveJob = (id) => {
+    this.props.dispatch({
+      type: 'recuitermentShow/saveJob',
+      payload: {
+        recuiterment: id,
+      },
+    })
+  }
+
   render() {
     const { loading, recuitermentShow: { recuitermentPosting, cvIsApproved, recuitermentSimilar }, dispatch, match } = this.props
     if (!recuitermentPosting) {
@@ -174,6 +183,7 @@ class RecuitermentDetailView extends React.Component {
                           <Button
                             className="btn-apply"
                             style={{ background: 'white', border: '0.6px solid #f60', color: '#f60' }}
+                            onClick={() => this.saveJob(recuitermentPosting._id)}
                           >
                             SAVE JOB
                           </Button>

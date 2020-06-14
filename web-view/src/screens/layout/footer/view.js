@@ -6,7 +6,7 @@ class FooterView extends React.Component {
     return (
       <footer>
         <div className="container">
-          <span>© 2019 | This is only website demo job online.<a href="/job">JOB ONLINE</a></span>
+          <span>© 2020 | This is only website demo job online.<a href="/job">JOB ONLINE</a></span>
         </div>
       </footer>
     )

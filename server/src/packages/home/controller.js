@@ -40,6 +40,7 @@ const getJobSuggest = async (req, res) => {
   const { user: { _id } } = req
   let jobsSuggest = []
 
+  console.log('careers334')
   if (!_id || (_id && req.user.role !== 'candidate')) {
     return response.r200(res, locale, { jobsSuggest })
   }
@@ -61,6 +62,8 @@ const getJobSuggest = async (req, res) => {
   // Get recuiter suggests
   jobsSuggest = await RecuitermentModel.getBriefInfoByCondition({
     careers,
+    status: 'approved',
+    active: true,
   })
 
   return response.r200(res, locale, { jobsSuggest })

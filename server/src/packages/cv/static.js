@@ -86,7 +86,7 @@ const briefInfo = async (cv) => {
   const jsonData = cv.toJSON()
   const { overviewInfo: { desiredCareer } } = jsonData
   const result = await Promise.all([{
-    desiredCareer: await CareerGroupModel.getBriefInfoById(desiredCareer),
+    desiredCareer: await CareerGroupModel.getBriefInfoByIds(desiredCareer),
     user: await UserModel.getBriefInfoById(jsonData.user),
   }])
   jsonData.overviewInfo.desiredCareer = result[0].desiredCareer
@@ -130,7 +130,14 @@ const getBriefInfoByIdForDownload = async (_id) => {
  */
 const getCareersByUser = async (condition) => {
   const data = await findDocsByCondition(condition)
-  const careers = data.map(item => item.overviewInfo.desiredCareer)
+  let careers = []
+  data.forEach((element) => {
+    const arr = element.toJSON().overviewInfo.desiredCareer
+    careers = [...careers, ...arr]
+  })
+
+  // Format string to unique
+  careers = lodash.uniq(careers.map(item => item.toString()))
   return careers
 }
 

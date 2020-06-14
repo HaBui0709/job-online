@@ -2,7 +2,6 @@ import Joi from 'joi'
 import lodash from 'lodash'
 import { validateClientData } from '../../utils'
 import { localesKey } from '../../locales'
-import configs from '../../configs';
 
 const cvKey = localesKey.cv
 
@@ -35,18 +34,18 @@ const obj = {
         },
       },
     }),
-    desiredCareer: Joi.string().regex(configs.regex.objectId).required().options({
-      language: {
-        key: '{{!desiredCareer}}',
-        string: {
-          regex: `!!${cvKey.desiredCareerInvalid}`,
-        },
-        any: {
-          required: `!!${cvKey.desiredCareerRequired}`,
-          empty: `!!${cvKey.desiredCareerRequired}`,
-        },
-      },
-    }),
+    // desiredCareer: Joi.string().regex(configs.regex.objectId).required().options({
+    //   language: {
+    //     key: '{{!desiredCareer}}',
+    //     string: {
+    //       regex: `!!${cvKey.desiredCareerInvalid}`,
+    //     },
+    //     any: {
+    //       required: `!!${cvKey.desiredCareerRequired}`,
+    //       empty: `!!${cvKey.desiredCareerRequired}`,
+    //     },
+    //   },
+    // }),
     desiredCity: Joi.string().required().options({
       language: {
         key: '{{!desiredCity}}',

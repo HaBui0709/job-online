@@ -193,7 +193,17 @@ class PreviewCVView extends React.Component {
                             <ul>
                               <li>
                                 <span> Ngành nghề: </span>
-                                <b className="value text-primary">{overviewInfo.desiredCareer.name}</b>
+                                {
+                                  overviewInfo.desiredCareer.map((item) => {
+                                    return (
+                                      <React.Fragment>
+                                        <b key={item._id} className="value text-primary">
+                                          {item.name}
+                                        </b>&nbsp;
+                                      </React.Fragment>
+                                    )
+                                  })
+                                }
                               </li>
                               <li>
                                 <span>Địa điểm làm việc: </span>

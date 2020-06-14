@@ -1,4 +1,7 @@
-import { fetchDetailRecuitermentPosting, applyJob, getCVApproved, fechSimilarJobs } from './service'
+import {
+  fetchDetailRecuitermentPosting, applyJob,
+  getCVApproved, fechSimilarJobs, saveJob,
+} from './service'
 import { notification } from '../../../utils'
 
 export default {
@@ -64,6 +67,15 @@ export default {
           cvIsApproved: cvs,
         },
       })
+    },
+
+    *saveJob({ payload }, { call }) {
+      const response = yield call(saveJob, payload)
+      const { data: { success, message } } = response
+      if (!success) {
+        return notification.error(message)
+      }
+      notification.success('Lưu tin tuyển dụng thành công!')
     },
   },
 

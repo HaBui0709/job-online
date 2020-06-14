@@ -33,9 +33,6 @@ export default (context) => {
       )
     },
   }, {
-    title: translate(key.desiredCareer),
-    dataIndex: 'overviewInfo.desiredCareer.name',
-  }, {
     title: translate(key.minimumWage),
     dataIndex: 'overviewInfo.minimumWage',
     render: value => <span>{format.number(value)} VNĐ</span>,

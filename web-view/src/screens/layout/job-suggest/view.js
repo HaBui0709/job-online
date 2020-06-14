@@ -30,7 +30,7 @@ class JobsSuggestView extends React.Component {
      */
     const title = (item) => {
       return (
-        <Link to="/detail-job">
+        <Link to={`/recuiterments/${item._id}`}>
           <h3 className="title-job">
             {item.title}
           </h3>
