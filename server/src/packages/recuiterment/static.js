@@ -48,7 +48,12 @@ const findByCondition = async (condition, { page = 0, limit }, sort = '-createdA
 const findDataByCondition = async (condition, { limit }, sort = { approvedAt: -1 }) => {
   const query = dbQuery.findByCondition(condition)
   const { data } = await to(RecuitermentModel.find(query).sort(sort).limit(limit))
-  return data || []
+
+  const recuiterment = await Promise.all(data.map(async (_id) => {
+    const rec = await getBriefInfoById(_id)
+    return rec
+  }))
+  return recuiterment || []
 }
 
 

@@ -84,6 +84,10 @@ export default {
       url: '/candidate/cv/approved',
       method: METHODS.get,
     }),
+    delete: _id => ({
+      url: `/candidate/cv/${_id}`,
+      method: METHODS.delete,
+    }),
   },
 
   // Recuiterment

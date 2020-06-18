@@ -1,12 +1,12 @@
-import React from 'react'
-import { Icon } from 'antd'
+import React from 'react';
+import { Icon, Tag, Col } from 'antd';
 
-import './style.less'
+import './style.less';
 import { helper, format } from '../../../../utils';
 
 class ComponentJobView extends React.Component {
   render() {
-    const { data } = this.props
+    const { data } = this.props;
     return (
       <div className="side-job paddingTop0 border_box_vlhd">
         <div className="box_vlhd">
@@ -20,6 +20,16 @@ class ComponentJobView extends React.Component {
             </a>
           </h2>
           <div className="row">
+            {data.careers.map((item) => {
+              console.log('c', item)
+              return (
+                <Col>
+                  <Tag color="blue" key={item._id}>{item.name}</Tag>
+                </Col>
+              );
+            })}
+          </div>
+          <div className="row">
             <div className="col-md-6" title="Mức lương">
               <div className="fontSize14">
                 <Icon className="margin-icon" type="dollar" /> &nbsp;
@@ -28,13 +38,14 @@ class ComponentJobView extends React.Component {
             </div>
             <div className="col-md-6" title="Hồ Chí Minh, Bình Dương">
               <div className="fontSize14 three_dots_title">
-                <Icon className="margin-icon" type="environment" />  &nbsp;
+                <Icon className="margin-icon" type="environment" /> &nbsp;
                 {helper.getCity(data.city)}
               </div>
             </div>
             <div className="col-md-6" title="Kinh nghiệm">
               <div className="fontSize14 three_dots_title">
-                <Icon className="margin-icon" type="bar-chart" />&nbsp;
+                <Icon className="margin-icon" type="bar-chart" />
+                &nbsp;
                 {helper.getTotalYearExperience(data.experience)}
               </div>
             </div>
@@ -47,8 +58,8 @@ class ComponentJobView extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default ComponentJobView
+export default ComponentJobView;

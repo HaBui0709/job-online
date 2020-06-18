@@ -83,6 +83,9 @@ const deleteCV = async (_id) => {
  * @param {Object} cv data
  */
 const briefInfo = async (cv) => {
+  if (cv === null) {
+    return {}
+  }
   const jsonData = cv.toJSON()
   const { overviewInfo: { desiredCareer } } = jsonData
   const result = await Promise.all([{

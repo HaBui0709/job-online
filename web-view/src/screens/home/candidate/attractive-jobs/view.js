@@ -11,7 +11,7 @@ class AttractiveJobsView extends React.Component {
     return (
       <Card
         title={<h4 className="title-box margin0">
-          Việc làm hấp dẫn
+          Việc làm lương cao
         </h4>}
         bordered={false}
       >

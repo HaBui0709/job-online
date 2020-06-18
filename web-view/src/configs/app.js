@@ -286,7 +286,7 @@ export default {
       _id: 'male',
       name: 'Nam',
     }, {
-      _id: 'fe-male',
+      _id: 'female',
       name: 'Nữ',
     }],
   },

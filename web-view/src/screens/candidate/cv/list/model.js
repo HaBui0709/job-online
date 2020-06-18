@@ -1,4 +1,4 @@
-import { fetchAllCV, fetchDetailCV } from './service'
+import { deleteCV, fetchAllCV, fetchDetailCV } from './service'
 import { notification } from '../../../../utils'
 
 export default {
@@ -34,6 +34,21 @@ export default {
         type: 'updateState',
         payload: {
           cv,
+        },
+      })
+    },
+    *deleteCV({ payload }, { call, put, select }) {
+      const data = yield call(deleteCV, payload)
+      const response = data.data
+      if (!response.data) {
+        return notification.error(response.message)
+      }
+      notification.success(response.message)
+      const { filter } = yield select(state => state.cvs)
+      yield put({
+        type: 'fetchAllCV',
+        payload: {
+          ...filter,
         },
       })
     },

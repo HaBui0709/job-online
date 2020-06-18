@@ -208,6 +208,7 @@ class HomeCandidateView extends React.Component {
               </div>
               {/** Viec lam theo nganh nghe */}
               <SearchWorkByCareer careerGroups={careerGroups} /><br /><br />
+              <h2>Việc làm mới nhất</h2>
               <ListJobsNewView dispatch={dispatch} app={app} /><br /><br />
               <ListJobsSuggest />
             </Col>

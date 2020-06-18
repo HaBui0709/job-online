@@ -35,16 +35,6 @@ class MenuCandidateView extends React.Component {
               <Icon type="mail" />Công việc đã lưu
             </Link>
           </Menu.Item>
-          <Menu.Item key="notification">
-            <Link to="/thiet-lap-thong-bao-viec-lam">
-              <Icon type="appstore" />Thông báo việc làm
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="beauty">
-            <Link to="/candidate/cv-beauty">
-              <Icon type="appstore" />Trang trí CV
-            </Link>
-          </Menu.Item>
         </Menu>
       </div>
     )

@@ -20,7 +20,18 @@ const fetchDetailCV = (_id) => {
     method: api.method,
   })
 }
+
+/**
+ * Delete cv
+ */
+const deleteCV = (_id) => {
+  const api = ApiConst.cv.delete(_id)
+  return request.call(api.url, {
+    method: api.method,
+  })
+}
 export {
   fetchDetailCV,
   fetchAllCV,
+  deleteCV,
 }

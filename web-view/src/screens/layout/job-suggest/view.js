@@ -1,14 +1,14 @@
-import React from 'react'
-import { Link } from 'dva/router'
+import React from 'react';
+import { Link } from 'dva/router';
 
-import { connect } from 'dva'
-import { List, Rate, Avatar, Row, Col, Icon } from 'antd'
+import { connect } from 'dva';
+import { List, Rate, Avatar, Row, Col, Icon, Tag } from 'antd';
 import { ImageConst } from '../../../configs';
 import { helper, format } from '../../../utils';
 
 class JobsSuggestView extends React.Component {
   componentDidMount() {
-    this.fetchJobSuggest()
+    this.fetchJobSuggest();
   }
 
   /**
@@ -17,13 +17,16 @@ class JobsSuggestView extends React.Component {
   fetchJobSuggest = () => {
     this.props.dispatch({
       type: 'app/fetchJobSuggest',
-    })
-  }
+    });
+  };
 
   render() {
-    const { app: { jobsSuggest = [] } } = this.props
+    const {
+      app: { jobsSuggest = [] },
+    } = this.props;
     if (!jobsSuggest.length) {
-      return ''
+      console.log('job suggest ', jobsSuggest);
+      return '';
     }
     /**
      * title
@@ -31,12 +34,10 @@ class JobsSuggestView extends React.Component {
     const title = (item) => {
       return (
         <Link to={`/recuiterments/${item._id}`}>
-          <h3 className="title-job">
-            {item.title}
-          </h3>
+          <h3 className="title-job">{item.title}</h3>
         </Link>
-      )
-    }
+      );
+    };
 
     /**
      * Description
@@ -71,9 +72,20 @@ class JobsSuggestView extends React.Component {
               <span>{format.dateWithNoHour(item.deadline)}</span>
             </Col>
           </Row>
+          <Row className="info-job">
+            {item.careers.map((i) => {
+              return (
+                <Col xs={4} sm={4} md={4} lg={4} key={i._id}>
+                  <Tag color="blue" type="career">
+                    {i.name}
+                  </Tag>
+                </Col>
+              );
+            })}
+          </Row>
         </div>
-      )
-    }
+      );
+    };
     return (
       <div>
         <div className="section-title">
@@ -86,19 +98,24 @@ class JobsSuggestView extends React.Component {
             renderItem={item => (
               <List.Item actions={[<Rate key={item.rate} count={1} />]}>
                 <List.Item.Meta
-                  avatar={<Avatar
-                    src={item.cover || ImageConst.defaultPhoto}
-                    shape="square" size={64}
-                  />}
+                  avatar={
+                    <Avatar
+                      src={item.cover || ImageConst.defaultPhoto}
+                      shape="square"
+                      size={64}
+                    />
+                  }
                   title={title(item)}
                   description={description(item)}
-                /><br />
+                />
+                <br />
               </List.Item>
             )}
           />
         </div>
-      </div>)
+      </div>
+    );
   }
 }
 
-export default connect(({ app, loading }) => ({ app, loading }))(JobsSuggestView)
+export default connect(({ app, loading }) => ({ app, loading }))(JobsSuggestView);

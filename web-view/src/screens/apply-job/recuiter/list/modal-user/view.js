@@ -43,11 +43,13 @@ const columns = [{
   title: 'Thành phố',
   dataIndex: 'cv.user.city',
   render: value => <Tag color="blue">{helper.getCity(value)}</Tag>,
-}, {
+},
+{
   title: 'Giới tính',
   dataIndex: 'cv.user.gender',
-  render: value => helper.getGender(value),
-}, {
+  // render: value => helper.getGender(value),
+},
+{
   title: 'Trạng thái duyệt cv',
   dataIndex: 'status',
   render: (value) => {

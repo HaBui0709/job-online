@@ -15,6 +15,13 @@ class RcCVItemView extends React.Component {
     dispatch(routerRedux.push(`/candidate/cv/preivew/${id}`))
   }
 
+  deleteCV = (id) => {
+    const { dispatch } = this.props
+    dispatch({
+      type: 'cvModel/deleteCV',
+      payload: id,
+    })
+  }
   render() {
     const { cv: { overviewInfo, updatedAt, _id, status } } = this.props
     const { color, name } = helper.getStatusNameAndColorByIdOfCVs(status)
@@ -48,7 +55,7 @@ class RcCVItemView extends React.Component {
                   Xem Hồ sơ
                 </Button>
                 <Button icon="edit" className="m-r-15">Chỉnh sửa</Button>
-                <Button icon="delete">Xóa</Button>
+                <Button icon="delete" onClick={() => this.deleteCV(_id)}>Xóa</Button>
               </div>
             </td>
           </tr>
