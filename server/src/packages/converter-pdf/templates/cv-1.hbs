@@ -1,0 +1,456 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page CV</title>
+</head>
+<style>
+  .container2 {
+    overflow: auto;
+    font-size: 9px;
+    line-height: 1.42857143;
+    width: 803px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 0;
+    border: 1px solid #d7d7d7;
+  }
+  .tb-info td {
+    font-size: 9px;
+    padding: 5px 0;
+    word-break: break-all;
+    vertical-align: top;
+  }
+  .fa-user {
+    width: 15px;
+    float: left;
+
+  }
+  .avatar-user {
+    text-align: right;
+    margin-right: 40px;
+  }
+  .inline-block {
+    display: inline-block;
+  }
+  .position-relative {
+      position: relative;
+  }
+  .inline-block {
+      display: inline-block;
+  }
+  .position-relative {
+      position: relative;
+  }
+  .img-ava {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    vertical-align: middle;
+}
+
+  .cvp-left {
+    width: 200px;
+    float: left;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .tb-info {
+    background-color: transparent;
+  }
+  .tb-info tr td:first-child {
+    width: 144px;
+    float: left;
+  }
+  .six .tb-info td {
+    font-size: 9px;
+    padding: 5px 0;
+    word-break: break-all;
+    vertical-align: top;
+  }
+  .txt-intro {
+    font-size: 10px;
+    color: #000;
+    width: 350px;
+  }
+  .font600 {
+    font-weight: 600 !important;
+  }
+  .muctieu {
+    border: none;
+    padding-top: 5px;
+    margin-top: 10px;
+    line-height: 20px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #dd3f57;
+    padding-bottom: 5px;
+  }
+  .cvp-box {
+    margin: 0!important;
+  }
+  .six .div-title {
+    font-size: 10px;
+    color: #dd3f57;
+    font-weight: 700;
+    padding-top: 10px;
+    padding-right: 25px;
+    padding-left: 50px;
+    position: relative;
+  }
+  .cvp-title {
+    color: rgb(43, 73, 94);
+    font-size: 10px;
+    position: relative;
+    left: 8px;
+  }
+  .cvp-right {
+    width: 560px;
+    float: left;
+    padding-right: 20px;
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dd3f57;
+  }
+
+  .box-content {
+    width: 100%;
+    position: relative;
+  }
+  .six .box-content .child-content {
+    margin-bottom: 35px;
+  }
+  .div-subject {
+    font-size: 10px;
+    font-weight: 700;
+    color: #000;
+    margin-top: 10px;
+  }
+  .mr20 {
+    margin-right: 20px!important;
+  }
+  .ml20 {
+    margin-left: 20px!important;
+  }
+  .txt-time {
+    font-size: 13px;
+    margin-right: 5px;
+    color: #999;
+    line-height: 18.5714px;
+  }
+  ul {
+    list-style: none;
+  }
+  .list-skill {
+    padding-bottom: 10px;
+    padding: 0;
+    margin: 0!important;
+  }
+  .child-content-li {
+    padding: 0;
+    padding-top: 0px;
+    margin-bottom: -13px;
+    width: 38%;
+    display: inline;
+    margin-right: 64px;
+    float: left;
+    list-style: none;
+  }
+  .skill-tit {
+    width: 80px;
+    float: left;
+    color: #000;
+  }
+  .child-content-2 {
+    margin-top: 10px;
+  }
+  .size-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .content-cv {
+    width: 100%;
+    height: 145px;
+    padding: 40px 0 0;
+    color: #FFF;
+  }
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<body style="background: green">
+  <div class="container2">
+    <img style="position: fixed;" src="http://127.0.0.1:5070/static/icon-template/backgound-cv-header.png" alt="" />
+    <div
+      class="content-cv"
+      >
+      <div class="cvp-left">
+        <div class="avatar-user">
+          <div class="inline-block">
+          </div>
+        </div>
+        <img
+          class="img-ava image-avatar"
+          src="{{ cv.user.avatar }}"
+          alt="">
+      </div>
+      <div class="cvp-right" style="border: none;">
+        <h1
+          style="
+            font-size: 13px;
+            line-height: 35.2px;
+            font-weight: 700;
+            padding-top: 5px;
+            margin-bottom: 2px;
+            font-family: 'Roboto Condensed',sans-serif;
+            text-transform: uppercase;
+            margin: 0;
+          "
+        >
+          {{ cv.user.fullName }}
+        </h1>
+        <h4
+          style="
+          font-size: 10px;
+          line-height: 19.8px;
+          color: #FFF;
+          font-weight: 700;
+          margin: 0;
+          text-transform: uppercase;
+          "
+        >
+          {{ cv.overviewInfo.desiredLocation }}
+        </h4>
+      </div>
+    </div>
+    <div
+      style="
+        margin-bottom: 40px!important;
+        margin: 0!important;
+      "
+    >
+      <div
+        style="width: 200px;
+        float: left;
+        padding-left: 20px;
+        position: relative;
+        "
+      ></div>
+      <div
+       style="width: 560px;
+       float: left;
+       padding-right: 20px;
+       margin-bottom: -10px;"
+      >
+        <table class="tb-info">
+          <tbody>
+            <tr>
+              <td>
+                <img class="fa-user" src="http://127.0.0.1:5070/static/icon-template/user.png" atl="" />&nbsp;&nbsp;
+                <span class="pa">{{ getGender cv.user.gender }}</span>
+              </td>
+              <td>
+                <img class="fa-user" src="http://127.0.0.1:5070/static/icon-template/calender.png" atl="" />&nbsp;&nbsp;
+                <span class="pa">{{ dateWithoutHour cv.user.birthday }}</span>
+              </td>
+              <td>
+                <img class="fa-user" src="http://127.0.0.1:5070/static/icon-template/location.png" atl="" />&nbsp;&nbsp;
+                <span class="pa">{{ getCity cv.user.city }}</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img class="fa-user" src="http://127.0.0.1:5070/static/icon-template/phone.png" atl="" />&nbsp;&nbsp;
+                <span class="pa">{{ phone cv.user.phone }}</span>
+              </td>
+              <td>
+                  <img class="fa-user" src="http://127.0.0.1:5070/static/icon-template/mail.png" atl="" />&nbsp;&nbsp;
+                  <span class="pa">{{ cv.user.email }}</span>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="txt-intro" style="-webkit-text-size-adjust: 100%;text-size-adjust: 100%;-ms-text-size-adjust: 100%;">
+            <span class="font600">Mục tiêu nghề nghiệp:</span>
+            <div class="muctieu">
+                {{{ cv.overviewInfo.careerGoal }}}
+            </div>
+        </div>
+      </div>
+    
+    
+    </div>
+    <div class="list-box">
+      <div class="cvp-box">
+        <div class="cvp-left">
+          <h2 class="div-title change-line-height" style="margin-top: -1px">
+            <img class="size-icon" src="http://127.0.0.1:5070/static/icon-template/graduation.png" alt="icon-template" />
+            <span
+              class="cvp-title change-color change-font-size">
+              HỌC VẤN
+            </span>
+          </h2>
+        </div>
+        <div class="cvp-right">
+          {{#each cv.qualifications }}
+            <div
+              class="box-content"
+              style="text-size-adjust: 100%; border-color: rgb(43, 73, 94);"
+            >
+              <div class="child-content">
+                <h4 class="div-subject">
+                    {{ unit }}
+                </h4>
+                <p class="sub-ma">
+                    Chuyên ngành: 
+                    <span>
+                        {{ certificate }}
+                    </span>
+                    <span class="mr20 ml20">|</span> Loại tốt nghiệp: 
+                    <span>
+                        {{graduationType graduationType }}
+                    </span>
+                </p>
+                <div class="txt-time">
+                    <img class="fa-user" src="http://127.0.0.1:5070/static/icon-template/calender.png" atl="" />&nbsp;&nbsp;
+                    <b style="font-size: 9px ">{{dateWithNoHourNoDay from }} - {{dateWithNoHourNoDay come}}</b>
+                </div>
+              </div>
+            </div>
+          {{/each}}
+      </div>
+
+      {{#if cv.workExperiences.length}}
+      <div class="cvp-box">
+        <div class="cvp-left">
+            <h2 class="div-title change-line-height" style="margin-top: 16px;">
+              <img class="size-icon" src="http://127.0.0.1:5070/static/icon-template/briefcase.png" alt="icon-template" />
+              <span
+                class="cvp-title change-color change-font-size">
+                KINH NGHIỆM
+              </span>
+            </h2>
+        </div>
+        <div class="cvp-right">
+            {{#each cv.workExperiences}}
+            <div
+              class="box-content"
+              style="text-size-adjust: 100%; border-color: rgb(43, 73, 94);"
+            >
+              <div class="child-content-2">
+                <h4 class="div-subject">
+                    {{company}}
+                </h4>
+                <p class="sub-ma">
+                    {{title}}
+                </p>
+                <div class="txt-time">
+                    <img class="fa-user" src="http://127.0.0.1:5070/static/icon-template/calender.png" atl="" />&nbsp;&nbsp;
+                    <b style="font-size: 9px ">{{dateWithNoHourNoDay workTimeStartAt}}- {{dateWithNoHourNoDay workTimeEndAt}}</b>
+                </div>
+                <div class="txt-intro" style="-webkit-text-size-adjust: 100%;text-size-adjust: 100%;-ms-text-size-adjust: 100%;">
+                    <span class="font600">Mô tả công việc:</span>
+                    <div class="muctieu" style="border: none">
+                        {{{ jobDescription }}}
+                    </div>
+                </div>
+              </div>
+            </div>
+            {{/each}}
+        </div>
+        
+      </div>
+      {{/if}}
+      <div class="cvp-box">
+        <div class="cvp-left">
+            <h2 class="div-title change-line-height">
+              <img class="size-icon" src="http://127.0.0.1:5070/static/icon-template/child.png" alt="icon-template" />
+              <span
+                class="cvp-title change-color change-font-size">
+                KỸ NĂNG 
+              </span>
+            </h2>
+        </div>
+        <div class="cvp-right">
+            <div
+            class="box-content"
+            style="text-size-adjust: 100%; border-color: rgb(43, 73, 94);"
+          >
+            <div class="child-content-2">
+                <ul>
+                  <li style="margin-left: -40px">
+                    <img style="height: 9px;" src="http://127.0.0.1:5070/static/icon-template/check.png" alt="" />&nbsp;&nbsp;
+                    <span>Quản lý thời gian</span>
+                  </li><br />
+                  <li style="margin-left: -40px">
+                    <img style="height: 9px;" src="http://127.0.0.1:5070/static/icon-template/check.png" alt="" />&nbsp;&nbsp;
+                    <span>Quản lý stress</span>
+                  </li><br />
+                  <li style="margin-left: -40px">
+                    <img style="height: 9px;" src="http://127.0.0.1:5070/static/icon-template/check.png" alt="" />&nbsp;&nbsp;
+                    <span>Làm việc nhóm</span>
+                  </li><br />
+                </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    {{#if cv.foreignLanguages.length}}
+      <div class="cvp-box">
+          <div class="cvp-left">
+              <h2 class="div-title change-line-height">
+                <img class="size-icon" src="http://127.0.0.1:5070/static/icon-template/language.png" alt="icon-template" />
+                <span
+                  class="cvp-title change-color change-font-size">
+                  NGÔN NGỮ
+                </span>
+              </h2>
+          </div>
+          {{#each cv.foreignLanguages}}
+          <div class="cvp-right">
+              <div
+              class="box-content"
+              style="text-size-adjust: 100%; border-color: rgb(43, 73, 94);"
+            >
+              <div class="child-content-2">
+                <span>{{getLanguage  typeLanguage}} :</span>
+                <ul class="list-skill">
+                  <li class="child-content-li">
+                      <div class="skill-tit change-font-size" style="font-size: 9px;">Nghe:</div>
+                     <div class="progress" style="height:10px">
+                        <p>{{getLearning listen}}</p>
+                      </div> 
+                  </li>
+                  <li class="child-content-li">
+                      <div class="skill-tit change-font-size" style="font-size: 9px;">Nói:</div>
+                     <div class="progress" style="height:10px">
+                        <p>{{getLearning speak}}</p>
+                        </div>
+                      </div> 
+                  </li>
+                  <li class="child-content-li">
+                      <div class="skill-tit change-font-size" style="font-size: 9px;">Đọc:</div>
+                     <div class="progress" style="height:10px">
+                        <p>{{getLearning read}}</p>
+                        </div>
+                      </div> 
+                  </li>
+                  <li class="child-content-li">
+                      <div class="skill-tit change-font-size" style="font-size: 9px;">Viết:</div>
+                     <div class="progress" style="height:10px">
+                        <p>{{getLearning write}}</p>
+                        </div>
+                      </div> 
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+    {{/if}}
+    </div>
+  </div>
+</body>
+</html>
