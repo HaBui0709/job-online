@@ -73,7 +73,7 @@ class UserModal extends Component {
       const { text, color } = helper.getStatusApplyJob(record.status)
       if (record === 'pending') {
         return (
-          <p>Trạng thái đang chờ phê tuyệt</p>
+          <p>Trạng thái đang chờ phê duyệt</p>
         )
       } else {
         return (

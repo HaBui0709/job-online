@@ -228,6 +228,16 @@ const similarJobs = async (req, res) => {
   return response.r200(res, locale, { data: recuiterments })
 }
 
+const remove = async (req, res) => {
+  const locale = helper.getLocale(req)
+  const { recuitermentData } = req
+  const { error } = await RecuitermentModel.deleteRecruitment(recuitermentData._id)
+  if (error) {
+    return response.r400(res, locale, getError.message(error))
+  }
+  return response.r200(res, locale, { _id: recuitermentData._id })
+}
+
 export default {
   create,
   all,
@@ -237,4 +247,5 @@ export default {
   jobHome,
   allApproved,
   similarJobs,
+  remove,
 }

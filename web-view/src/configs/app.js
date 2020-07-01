@@ -296,23 +296,23 @@ export default {
     list: [
       {
         _id: 'employees',
-        name: 'Nhân viên',
+        name: 'Developer',
       },
       {
         _id: 'collaborators',
-        name: 'Cộng tác viên',
+        name: 'Tester',
       },
       {
         _id: 'leader',
-        name: 'Trưởng nhóm',
+        name: 'Project Manager',
       },
       {
         _id: 'deputy-director',
-        name: 'Trưởng phó phòng',
+        name: 'Quality Assurance',
       },
       {
         _id: 'senior-management',
-        name: 'Quản lý cao cấp',
+        name: 'Solution Architect',
       },
     ],
   },
@@ -380,6 +380,10 @@ export default {
   aducationLevel: {
     list: [
       {
+        title: 'Không yêu cầu',
+        value: 'no-required',
+        name: 'no-required',
+      }, {
         title: 'Cao học',
         value: 'after-university',
         name: 'after-university',

@@ -57,9 +57,9 @@ const findDataByCondition = async (condition, { limit }, sort = { approvedAt: -1
 }
 
 
-const findDocsByCondition = async (condition) => {
+const findDocsByCondition = async (condition, sort) => {
   const query = dbQuery.findByCondition(condition)
-  const { data } = await to(RecuitermentModel.find(query))
+  const { data } = await to(RecuitermentModel.find(query).sort(sort))
   return data || []
 }
 
@@ -160,8 +160,8 @@ const getManagerByCondition = async (condition) => {
  * @param {Object} condition
  *
  */
-const getBriefInfoByCondition = async (condition) => {
-  const data = await findDocsByCondition(condition)
+const getBriefInfoByCondition = async (condition, sort) => {
+  const data = await findDocsByCondition(condition, sort)
   const recuiterments = await Promise.all(data.map(async (item) => {
     const obj = await briefInfo(item)
     return obj
@@ -255,6 +255,11 @@ const cronjobCompleted = async () => {
   })
 }
 
+const deleteRecruitment = async (_id) => {
+  const result = await to(RecuitermentModel.findByIdAndRemove({ _id }))
+  return result
+}
+
 export default {
   saveDoc,
   briefInfo,
@@ -273,4 +278,5 @@ export default {
   getDataForChart,
   getQuantityRecuitermentsByRangeTimes,
   cronjobCompleted,
+  deleteRecruitment,
 }

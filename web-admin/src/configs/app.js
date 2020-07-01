@@ -481,6 +481,10 @@ export default {
   aducationLevel: {
     list: [
       {
+        title: 'Không yêu cầu',
+        value: 'no-required',
+        name: 'no-required',
+      }, {
         title: 'Cao học',
         value: 'after-university',
         name: 'after-university',

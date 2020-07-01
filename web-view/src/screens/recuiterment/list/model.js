@@ -1,4 +1,4 @@
-import { fetch } from './service'
+import { fetch, deleteRecruitment } from './service'
 import { notification } from '../../../utils'
 import { AppConst } from '../../../configs'
 
@@ -46,6 +46,21 @@ export default {
             total,
             limit: limitPerPage,
           },
+        },
+      })
+    },
+    *deleteRecruitment({ payload }, { call, put, select }) {
+      const data = yield call(deleteRecruitment, payload)
+      const response = data.data
+      if (!response.data) {
+        return notification.error(response.message)
+      }
+      notification.success(response.message)
+      const { filter } = yield select(state => state.recuiterments)
+      yield put({
+        type: 'fetch',
+        payload: {
+          ...filter,
         },
       })
     },

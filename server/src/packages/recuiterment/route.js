@@ -74,6 +74,14 @@ router.get('/:recuitermentId/similar-jobs', RecuiterCtrl.similarJobs)
  */
 router.patch('/:recuitermentId', middleware.requiresAdmin, RecuiterCtrl.adminChangeStatus)
 
+/**
+ * @api {get} /recuiterments/:recuitermentId/posting Show recuiterment is posting
+ * @apiGroup Recuiterments
+ * @apiName Show recuiterment  is posting
+ *
+ */
+router.delete('/:recuitermentId', middleware.requiresRecuiter, RecuiterCtrl.remove)
+
 // Pre-query
 router.param('recuitermentId', preQuery.recuiterment)
 

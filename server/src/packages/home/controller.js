@@ -22,12 +22,12 @@ const jobIteresting = async (req, res) => {
  */
 const jobUrgent = async (req, res) => {
   const locale = helper.getLocale(req)
-  const { limit = 20 } = req.query
+  const { limit = 10 } = req.query
   const condition = {
     status: 'approved',
     active: true,
   }
-  const sort = { deadline: -1 }
+  const sort = { deadline: 1 }
   const data = await RecuitermentModel.findDataByCondition(condition, { limit }, sort)
   return response.r200(res, locale, data)
 }
@@ -60,12 +60,18 @@ const getJobSuggest = async (req, res) => {
   })
 
   // Get recuiter suggests
-  jobsSuggest = await RecuitermentModel.getBriefInfoByCondition({
+  const sort = { 'salary.value.to': -1 }
+  const page = 0
+  const limit = 5
+  const recuitermentData = await RecuitermentModel.findByCondition({
     careers,
     status: 'approved',
     active: true,
-  })
+  }, { page, limit }, sort)
 
+  // console.log('ABC: ', recuitermentData)
+  const recuitermentIds = recuitermentData.map(item => item._id)
+  jobsSuggest = await RecuitermentModel.getBriefInfoByIds(recuitermentIds)
   return response.r200(res, locale, { jobsSuggest })
 }
 

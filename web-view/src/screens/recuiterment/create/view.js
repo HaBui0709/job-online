@@ -354,22 +354,6 @@ class CVFormCreateView extends React.Component {
                         />
                       </Form.Item>
                     </Col>
-                    <Col xs={23} sm={23} md={23} lg={23} xl={23} style={{ marginBottom: '15px' }}>
-                      <Form.Item
-                        className="last-form-item"
-                        hasFeedback
-                      >
-                        <BraftEditor
-                          value={benefit}
-                          ref={this.editorInstance}
-                          onChange={value => this.onChangeEditor(value, 'benefit')}
-                          controls={editorControls}
-                          placeholder="Quyền lợi"
-                          language="en"
-                          stripPastedStyles
-                        />
-                      </Form.Item>
-                    </Col>
                     <Col xs={23} sm={23} md={23} lg={23} xl={23}>
                       <Form.Item
                         className="last-form-item"
@@ -381,6 +365,22 @@ class CVFormCreateView extends React.Component {
                           onChange={value => this.onChangeEditor(value, 'jobRequirements')}
                           controls={editorControls}
                           placeholder="Yêu cầu công việc"
+                          language="en"
+                          stripPastedStyles
+                        />
+                      </Form.Item>
+                    </Col>
+                    <Col xs={23} sm={23} md={23} lg={23} xl={23} style={{ marginBottom: '15px' }}>
+                      <Form.Item
+                        className="last-form-item"
+                        hasFeedback
+                      >
+                        <BraftEditor
+                          value={benefit}
+                          ref={this.editorInstance}
+                          onChange={value => this.onChangeEditor(value, 'benefit')}
+                          controls={editorControls}
+                          placeholder="Quyền lợi"
                           language="en"
                           stripPastedStyles
                         />

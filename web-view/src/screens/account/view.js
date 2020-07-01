@@ -97,13 +97,13 @@ class AccountFormView extends React.Component {
                       {
                     getFieldDecorator('email', {
                       initialValue: user.email || '',
-                      rules: [{
-                        required: true, message: 'Email không được trống!',
-                      }, {
-                        pattern: AppConst.regex.email,
-                        message: t(key.invalidEmail),
-                      }],
-                    })(<Input name="email" className="input-style" placeholder="Email" />)
+                      // rules: [{
+                      //   required: true, message: 'Email không được trống!',
+                      // }, {
+                      //   pattern: AppConst.regex.email,
+                      //   message: t(key.invalidEmail),
+                      // }],
+                    })(<Input name="email" type="text" className="input-style" placeholder="Email" />)
                   }
                     </FormItem>
                     <FormItem
@@ -115,6 +115,20 @@ class AccountFormView extends React.Component {
                     getFieldDecorator('facebook', {
                       initialValue: user.facebook || '',
                     })(<Input name="facebook" type="text" className="input-style" placeholder={t(key.facebook)} />)
+                  }
+                    </FormItem>
+                    <FormItem
+                      {...formItemLayout}
+                      label="Username"
+                      hasFeedback
+                    >
+                      {
+                    getFieldDecorator('username', {
+                      initialValue: user.username || '',
+                      rules: [{
+                        required: true, message: 'Username không được trống!',
+                      }],
+                    })(<Input name="username" className="input-style" placeholder="Username" />)
                   }
                     </FormItem>
                     <FormItem

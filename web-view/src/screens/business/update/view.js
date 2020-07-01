@@ -4,14 +4,14 @@ import lodash from 'lodash'
 import { Row, Col, PageHeader, Card, Avatar, Form, Input, Select, Button, Upload, Icon, Skeleton, Badge, Tooltip } from 'antd'
 import { translate } from 'react-i18next'
 // import { routerRedux } from 'dva/router'
-import get from 'lodash/get'
+// import get from 'lodash/get'
 
 
 // import { Link } from 'dva/router'
 import './style.less'
 import { ComponentConst, AppConst } from '../../../configs'
 
-import Maps from '../../register/form-register/recuiter/form/maps'
+// import Maps from '../../register/form-register/recuiter/form/maps'
 
 const formItemLayout = ComponentConst.formMax.itemLayout
 const FormItem = Form.Item
@@ -262,11 +262,11 @@ class BusinessFormView extends React.Component {
                       {...formItemLayout}
                       label={<span className="section-title"><h4>Vị trí</h4></span>}
                     >
-                      <Maps
+                      {/* <Maps
                         updateData={this.updateData}
                         coordinates={get(business, 'location.coordinates', null)}
                         address={business.address}
-                      />
+                      /> */}
                     </FormItem>
                     <FormItem
                       {...formItemLayout}

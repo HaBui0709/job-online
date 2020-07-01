@@ -116,6 +116,10 @@ export default {
       url: `/recuiterments/${_id}/similar-jobs`,
       method: METHODS.get,
     }),
+    delete: _id => ({
+      url: `/recuiterments/${_id}`,
+      method: METHODS.delete,
+    }),
   },
 
   // Account

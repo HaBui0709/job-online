@@ -4,7 +4,15 @@ import { Tag, Avatar, Button, Icon, Tooltip } from 'antd'
 import { format } from '../../../../utils'
 import { ImageConst } from '../../../../configs'
 
-export default () => {
+
+export default (context) => {
+  const deleteRecruitment = (id) => {
+    const { dispatch } = context.props
+    dispatch({
+      type: 'recuiterments/deleteRecruitment',
+      payload: id,
+    })
+  }
   return [{
     title: '#',
     className: 'hidden-break-small',
@@ -42,7 +50,7 @@ export default () => {
     },
   }, {
     title: 'Hành động',
-    render: () => {
+    render: (row) => {
       return (
         <div>
           <Tooltip title="Chỉnh sửa">
@@ -55,6 +63,7 @@ export default () => {
           <Tooltip title="Xóa tin">
             <Button
               style={{ background: 'red' }}
+              onClick={() => deleteRecruitment(row._id)}
             >
               <Icon type="delete" />
             </Button>
