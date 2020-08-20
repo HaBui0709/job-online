@@ -45,7 +45,7 @@
     "ext": "js"
   },
   "dependencies": {
-    "bcrypt": "^3.0.4",
+    "bcrypt": "^5.0.0",
     "cluster": "^0.7.7",
     "compress": "^0.99.0",
     "compression": "^1.7.2",
